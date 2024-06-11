@@ -1,0 +1,147 @@
+body {
+  main {
+    @include section;
+    .tutorial {
+      @include cont(flex, space-between, center);
+      flex-direction: column;
+
+      .title {
+        @include cont(flex, center, center);
+        width: 100%;
+        position: relative;
+        h2 {
+          font-size: 130px;
+          letter-spacing: -1px;
+          background: linear-gradient(
+            180deg,
+            rgba(103, 182, 255, 1) 0%,
+            rgba(255, 255, 255, 1) 99%
+          );
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          color: transparent;
+          -webkit-text-stroke: 5px $stroke;
+          @include responsive(tablet) {
+            font-size: 100px;
+            -webkit-text-stroke: 3px $stroke;
+          }
+          @include responsive(m-tablet) {
+            font-size: 80px;
+            margin-left: auto;
+          }
+          @include responsive(m-phone) {
+            font-size: 50px;
+          }
+        }
+        #goBack {
+          @include responsive(m-tablet) {
+            padding: 15px;
+          }
+          position: absolute;
+          left: 0;
+          padding: 20px;
+          border-radius: 50%;
+          border: none;
+          border-bottom: 3px solid;
+          background: rgb(254, 113, 254);
+          background: linear-gradient(
+            180deg,
+            rgba(254, 113, 254, 1) 0%,
+            rgba(199, 129, 254, 1) 39%,
+            rgba(113, 153, 255, 1) 100%
+          );
+          &:hover {
+            background: rgb(254, 113, 254);
+            background: linear-gradient(
+              180deg,
+              rgba(254, 113, 254, 0.7) 0%,
+              rgba(199, 129, 254, 0.7) 39%,
+              rgba(113, 153, 255, 0.7) 100%
+            );
+          }
+          img {
+            width: 40px;
+            @include responsive(m-tablet) {
+              width: 25px;
+            }
+          }
+        }
+      }
+      .tutorial_container {
+        @include cont(flex, space-between, stretch);
+        margin-top: 60px;
+        flex-wrap: wrap;
+        @include responsive(tablet) {
+          margin-top: 40px;
+        }
+        @include responsive(m-tablet) {
+          margin-top: 20px;
+        }
+        .tutorial_box {
+          width: 32%;
+          background-color: $white;
+          border-radius: 40px;
+          text-align: center;
+          padding: 60px 48px;
+          @include responsive(l-tablet) {
+            padding: 40px 28px;
+          }
+          @include responsive(tablet) {
+            width: 100%;
+            &:not(:last-child) {
+              margin-bottom: 20px;
+            }
+            @include cont(flex, space-between, center);
+          }
+          @include responsive(m-tablet) {
+            padding: 15px 10px;
+          }
+          span {
+            font-size: 88px;
+            color: $blue;
+            @include responsive(m-tablet) {
+              font-size: 50px;
+            }
+          }
+          .info {
+            @include responsive(tablet) {
+              text-align: left;
+              margin-left: 30px;
+            }
+            h3 {
+              font-size: 40px;
+              letter-spacing: 2px;
+              color: $dark-navy;
+              padding: 40px 0px;
+              @include responsive(l-tablet) {
+                font-size: 36px;
+              }
+              @include responsive(tablet) {
+                padding: 0px;
+              }
+              @include responsive(m-phone) {
+                font-size: 24px;
+              }
+            }
+            p {
+              @include responsive(tablet) {
+                margin-top: 10px;
+              }
+              font-size: 22px;
+              color: $purple;
+              letter-spacing: 2px;
+              line-height: 120%;
+              @include responsive(tablet) {
+                font-size: 20px;
+              }
+              @include responsive(m-phone) {
+                font-size: 16px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

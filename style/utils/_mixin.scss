@@ -11,8 +11,9 @@
 }
 $l-pc: 1420px; // large PC screen size
 $pc: 1260px; // PC screen size.
-$l-tablet: 1024px; // tablet screen size
-$tablet: 1100px; // Tablet screen size.
+$l-tablet: 1100px; // tablet screen size
+$tablet: 950px; // Tablet screen size.
+$m-tablet: 600px; // Tablet screen size.
 $phone: 500px; // Phone screen size.
 $m-phone: 400px; // Small Screen size.
 $tablet-max: $tablet - 1;
@@ -32,11 +33,11 @@ $pc-max: $pc - 1;
       @content;
     }
   } @else if $media == tablet {
-    @media only screen and (max-width: $pc-max) {
+    @media only screen and (max-width: $tablet) {
       @content;
     }
-  } @else if $media == phone {
-    @media only screen and (max-width: $phone) {
+  } @else if $media == m-tablet {
+    @media only screen and (max-width: $m-tablet) {
       @content;
     }
   } @else if $media == m-phone {
