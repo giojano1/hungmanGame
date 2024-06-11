@@ -4,6 +4,44 @@
   align-items: $align;
 }
 @mixin section {
-  max-width: 1200px;
+  max-width: 1220px;
+  padding: 20px;
   margin: 0 auto;
+  width: 100%;
+}
+$l-pc: 1420px; // large PC screen size
+$pc: 1260px; // PC screen size.
+$l-tablet: 1024px; // tablet screen size
+$tablet: 1100px; // Tablet screen size.
+$phone: 500px; // Phone screen size.
+$m-phone: 400px; // Small Screen size.
+$tablet-max: $tablet - 1;
+$pc-max: $pc - 1;
+
+@mixin responsive($media) {
+  @if $media == l_pc {
+    @media only screen and (max-width: $l-pc) {
+      @content;
+    }
+  } @else if $media == pc {
+    @media only screen and (min-width: $pc) {
+      @content;
+    }
+  } @else if $media == l-tablet {
+    @media only screen and (max-width: $l-tablet) {
+      @content;
+    }
+  } @else if $media == tablet {
+    @media only screen and (max-width: $pc-max) {
+      @content;
+    }
+  } @else if $media == phone {
+    @media only screen and (max-width: $phone) {
+      @content;
+    }
+  } @else if $media == m-phone {
+    @media only screen and (max-width: $m-phone) {
+      @content;
+    }
+  }
 }
