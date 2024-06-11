@@ -180,10 +180,21 @@ body main .menu_content {
   background: rgb(52, 74, 186);
   background: linear-gradient(180deg, rgb(52, 74, 186) 0%, rgba(0, 20, 121, 0.83) 100%);
 }
+@media only screen and (max-width: 500px) {
+  body main .menu_content {
+    height: 450px;
+  }
+}
 body main .menu_content .logo {
   position: absolute;
   top: -100px;
   width: 350px;
+}
+@media only screen and (max-width: 500px) {
+  body main .menu_content .logo {
+    width: 300px;
+    top: -80px;
+  }
 }
 @media only screen and (max-width: 400px) {
   body main .menu_content .logo {
@@ -401,5 +412,120 @@ body main .tutorial .tutorial_container .tutorial_box .info p {
 @media only screen and (max-width: 400px) {
   body main .tutorial .tutorial_container .tutorial_box .info p {
     font-size: 16px;
+  }
+}
+
+body main {
+  max-width: 1220px;
+  padding: 20px;
+  margin: 0 auto;
+  width: 100%;
+}
+body main .categories_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+body main .categories_container .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+body main .categories_container .title h2 {
+  font-size: 130px;
+  letter-spacing: -1px;
+  background: linear-gradient(180deg, rgb(103, 182, 255) 0%, rgb(255, 255, 255) 99%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 5px #243041;
+}
+@media only screen and (max-width: 950px) {
+  body main .categories_container .title h2 {
+    font-size: 90px;
+    -webkit-text-stroke: 3px #243041;
+  }
+}
+@media only screen and (max-width: 600px) {
+  body main .categories_container .title h2 {
+    font-size: 70px;
+    margin-left: auto;
+  }
+}
+@media only screen and (max-width: 400px) {
+  body main .categories_container .title h2 {
+    font-size: 50px;
+  }
+}
+body main .categories_container .title #goBack2 {
+  position: absolute;
+  left: 0;
+  padding: 20px;
+  border-radius: 50%;
+  border: none;
+  border-bottom: 3px solid;
+  background: rgb(254, 113, 254);
+  background: linear-gradient(180deg, rgb(254, 113, 254) 0%, rgb(199, 129, 254) 39%, rgb(113, 153, 255) 100%);
+}
+@media only screen and (max-width: 600px) {
+  body main .categories_container .title #goBack2 {
+    padding: 15px;
+  }
+}
+body main .categories_container .title #goBack2:hover {
+  background: rgb(254, 113, 254);
+  background: linear-gradient(180deg, rgba(254, 113, 254, 0.7) 0%, rgba(199, 129, 254, 0.7) 39%, rgba(113, 153, 255, 0.7) 100%);
+}
+body main .categories_container .title #goBack2 img {
+  width: 40px;
+}
+@media only screen and (max-width: 600px) {
+  body main .categories_container .title #goBack2 img {
+    width: 25px;
+  }
+}
+body main .categories_container .cat_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+body main .categories_container .cat_row .cat {
+  background-color: #2463ff;
+  border: 1px solid rgb(68, 119, 248);
+  border-radius: 40px;
+  width: 32%;
+  text-align: center;
+  padding: 30px 0px;
+  margin-top: 20px;
+}
+@media only screen and (max-width: 700px) {
+  body main .categories_container .cat_row .cat {
+    width: 49%;
+  }
+}
+@media only screen and (max-width: 500px) {
+  body main .categories_container .cat_row .cat {
+    width: 100%;
+  }
+}
+body main .categories_container .cat_row .cat span {
+  font-size: 48px;
+  color: #ffffff;
+  letter-spacing: 2px;
+}
+@media only screen and (max-width: 950px) {
+  body main .categories_container .cat_row .cat span {
+    font-size: 40px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  body main .categories_container .cat_row .cat span {
+    font-size: 30px;
   }
 }/*# sourceMappingURL=global.css.map */
