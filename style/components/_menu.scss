@@ -1,0 +1,59 @@
+body {
+  width: 100%;
+  background-image: url("../../assets/images/background-desktop.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  main {
+    @include section;
+    width: 100%;
+    .menu_content {
+      @include cont(flex, space-between, center);
+      display: none;
+      flex-direction: column;
+      position: relative;
+      background: rgb(52, 74, 186);
+      background: linear-gradient(
+        180deg,
+        rgba(52, 74, 186, 1) 0%,
+        rgba(0, 20, 121, 0.85) 90%
+      );
+      width: 500px;
+      height: 500px;
+      padding: 40px;
+      border-radius: 70px;
+      border-top: 10px solid $blue;
+      border-left: 2px solid $blue;
+      border-right: 2px solid $blue;
+      border-bottom: 5px solid $black-border;
+      .logo {
+        position: absolute;
+        top: -100px;
+        width: 360px;
+      }
+      #play {
+        margin-top: 80px;
+        background-color: transparent;
+        border: none;
+        width: 200px;
+        img {
+          width: 100%;
+        }
+      }
+      #tutorial {
+        font-size: 32px;
+        border: none;
+        font-family: "mouse";
+        color: $white;
+        background-color: $blue;
+        padding: 12px 60px;
+        border-radius: 40px;
+        border-top: 5px solid $blue-border;
+        transition: 250ms;
+        &:hover {
+          opacity: 0.8;
+          transition: 250ms;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,310 @@
+/* Global reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-decoration: none;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+@font-face {
+  font-family: "mouse";
+  src: url("../assets/fonts/MouseMemoirs-Regular.ttf");
+}
+body {
+  font-family: "mouse";
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Global reset end */
+body {
+  width: 100%;
+  background-image: url("../../assets/images/background-desktop.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+body main {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+body main .menu_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  display: none;
+  flex-direction: column;
+  position: relative;
+  background: rgb(52, 74, 186);
+  background: linear-gradient(180deg, rgb(52, 74, 186) 0%, rgba(0, 20, 121, 0.85) 90%);
+  width: 500px;
+  height: 500px;
+  padding: 40px;
+  border-radius: 70px;
+  border-top: 10px solid #2463ff;
+  border-left: 2px solid #2463ff;
+  border-right: 2px solid #2463ff;
+  border-bottom: 5px solid #0b1524;
+}
+body main .menu_content .logo {
+  position: absolute;
+  top: -100px;
+  width: 360px;
+}
+body main .menu_content #play {
+  margin-top: 80px;
+  background-color: transparent;
+  border: none;
+  width: 200px;
+}
+body main .menu_content #play img {
+  width: 100%;
+}
+body main .menu_content #tutorial {
+  font-size: 32px;
+  border: none;
+  font-family: "mouse";
+  color: #ffffff;
+  background-color: #2463ff;
+  padding: 12px 60px;
+  border-radius: 40px;
+  border-top: 5px solid rgb(68, 119, 248);
+  transition: 250ms;
+}
+body main .menu_content #tutorial:hover {
+  opacity: 0.8;
+  transition: 250ms;
+}
+
+body main .howToPlay {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  display: none;
+  position: relative;
+}
+body main .howToPlay .title h2 {
+  font-size: 130px;
+  -webkit-text-stroke: 2px #243041;
+  background: linear-gradient(180deg, rgb(103, 182, 255) 0%, rgb(255, 255, 255) 99%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+}
+body main .howToPlay .tutorial_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  margin-top: 50px;
+}
+body main .howToPlay .tutorial_container .tutorial_box {
+  background-color: #ffffff;
+  width: 30%;
+  text-align: center;
+  border-radius: 40px;
+  padding: 40px;
+}
+body main .howToPlay .tutorial_container .tutorial_box span {
+  font-size: 80px;
+  color: #2463ff;
+}
+body main .howToPlay .tutorial_container .tutorial_box h3 {
+  color: #261676;
+  font-size: 40px;
+  padding: 40px 0px;
+}
+body main .howToPlay .tutorial_container .tutorial_box p {
+  color: #887dc0;
+  font-size: 22px;
+  line-height: 120%;
+}
+body main .howToPlay #goBack {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  border: none;
+}
+
+body main .categories_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+body main .categories_container .title h2 {
+  font-size: 130px;
+  -webkit-text-stroke: 2px #243041;
+  background: linear-gradient(180deg, rgb(103, 182, 255) 0%, rgb(255, 255, 255) 99%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+}
+body main .categories_container .cat_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 50px;
+}
+body main .categories_container .cat_row .cat {
+  width: 30%;
+  background-color: #2463ff;
+  border-radius: 40px;
+  text-align: center;
+  padding: 40px 0px;
+  margin-bottom: 20px;
+}
+body main .categories_container .cat_row .cat span {
+  color: #ffffff;
+  font-size: 42px;
+  letter-spacing: 2px;
+}
+body main .categories_container #goBack2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  border: none;
+}/*# sourceMappingURL=global.css.map */

@@ -1,0 +1,9 @@
+@mixin cont($display, $justify, $align) {
+  display: $display;
+  justify-content: $justify;
+  align-items: $align;
+}
+@mixin section {
+  max-width: 1200px;
+  margin: 0 auto;
+}
