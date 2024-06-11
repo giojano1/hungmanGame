@@ -2,6 +2,7 @@ body {
   background-image: url("../assets/images/background-desktop.svg");
   background-size: cover;
   background-repeat: no-repeat;
+
   main {
     @include section;
     .menu_content {
@@ -87,4 +88,7 @@ body {
       }
     }
   }
+}
+.bodyAlign {
+  align-items: center;
 }
