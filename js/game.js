@@ -34,6 +34,7 @@ function startGame() {
       let wordCount = chosenWord.name.length;
       genWordBox(chosenWord.name);
       gamePlay(chosenWord);
+      return chosenWord;
     });
 }
 // generate empty boxes
@@ -49,9 +50,9 @@ function genWordBox(word) {
 }
 //game
 function gamePlay(chosenWord) {
+  let word = chosenWord.name.toUpperCase();
   keys.forEach((key) => {
     key.value = key.textContent.toUpperCase();
-    let word = chosenWord.name.toUpperCase();
     const box = document.querySelectorAll(".word");
     let counter = 0;
     key.addEventListener("click", () => {
