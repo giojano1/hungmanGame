@@ -79,6 +79,13 @@ body {
           text-align: center;
           padding: 30px 0px;
           margin-top: 20px;
+          cursor: pointer;
+          transition: 250ms;
+
+          &:hover {
+            background-color: $blue-border;
+            transition: 250ms;
+          }
           @include responsive(m2-tablet) {
             width: 49%;
           }

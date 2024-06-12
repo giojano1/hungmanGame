@@ -1,9 +1,12 @@
 body {
   main {
     @include section;
+    height: 100%;
+
     .game_container {
-      @include cont(flex, auto, center);
+      @include cont(flex, space-between, center);
       flex-direction: column;
+      height: 100%;
       .header {
         @include cont(flex, space-between, center);
         width: 100%;
@@ -122,7 +125,7 @@ body {
         @include cont(flex, center, center);
         width: 100%;
         flex-wrap: wrap;
-        margin-top: 80px;
+
         .word {
           @include cont(flex, center, center);
           width: 11%;
@@ -145,12 +148,15 @@ body {
         .guessedWord {
           background-color: $blue;
         }
+        .space {
+          opacity: 0;
+        }
       }
       .keyboard_container {
         @include cont(flex, center, center);
         width: 100%;
         flex-wrap: wrap;
-        margin-top: 80px;
+
         .key {
           @include cont(flex, center, center);
           width: 10%;
@@ -168,13 +174,381 @@ body {
               color: $white;
             }
           }
+          &:disabled {
+            opacity: 0.25;
+            &:hover {
+              background-color: $white;
+              span {
+                color: $dark-navy;
+              }
+            }
+          }
+          @include responsive(tablet) {
+            height: 50px;
+          }
+          @include responsive(phone) {
+            margin: 5px;
+            height: 40px;
+          }
           span {
             color: $dark-navy;
             font-size: 45px;
             font-family: "mouse";
+            @include responsive(tablet) {
+              font-size: 35px;
+            }
+            @include responsive(phone) {
+              font-size: 30px;
+            }
           }
         }
       }
+    }
+    .win_cont {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      @include responsive(phone) {
+        height: 450px;
+      }
+      max-width: 600px;
+      margin: 0 auto;
+      width: 90%;
+      padding: 50px;
+      height: 500px;
+      border-radius: 70px;
+      border-top: 10px solid $blue;
+      border-left: 3px solid $blue;
+      border-right: 3px solid $blue;
+      background: rgb(52, 74, 186);
+      background: linear-gradient(
+        180deg,
+        rgba(52, 74, 186, 1) 0%,
+        rgba(0, 20, 121, 0.83) 100%
+      );
+      @include responsive(phone) {
+        padding: 50px 30px;
+      }
+      .win_content {
+        @include cont(flex, space-between, center);
+        flex-direction: column;
+        position: relative;
+        h3 {
+          position: absolute;
+          top: -120px;
+          text-align: center;
+          font-size: 130px;
+          letter-spacing: -1px;
+          background: linear-gradient(
+            180deg,
+            rgba(103, 182, 255, 1) 0%,
+            rgba(255, 255, 255, 1) 99%
+          );
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          color: transparent;
+          -webkit-text-stroke: 5px $stroke;
+          @include responsive(phone) {
+            top: -110px;
+            font-size: 100px;
+            -webkit-text-stroke: 3px $stroke;
+          }
+          @include responsive(m-phone) {
+            top: -100px;
+            font-size: 80px;
+          }
+        }
+        button {
+          font-family: "mouse";
+          font-size: 32px;
+          color: $white;
+          padding: 12px 60px;
+          background-color: transparent;
+          border: none;
+          border-radius: 40px;
+          margin-top: 40px;
+          @include responsive(phone) {
+            font-size: 28px;
+            padding: 12px 50px;
+          }
+        }
+        #restart {
+          background-color: $blue;
+          border-radius: 40px;
+          border-top: 5px solid $blue-border;
+          border-left: 4px solid $blue-border;
+          border-right: 4px solid $blue-border;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+        #goCat {
+          background-color: $blue;
+          border-radius: 40px;
+          border-top: 5px solid $blue-border;
+          border-left: 4px solid $blue-border;
+          border-right: 4px solid $blue-border;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+        #quit {
+          background: rgb(254, 113, 254);
+          background: linear-gradient(
+            180deg,
+            rgba(254, 113, 254, 1) 0%,
+            rgba(199, 129, 254, 1) 39%,
+            rgba(113, 153, 255, 1) 100%
+          );
+          border-radius: 40px;
+          border-top: 5px solid $purple;
+          border-left: 4px solid $purple;
+          border-right: 4px solid $purple;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+    .lose_cont {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      @include responsive(phone) {
+        height: 450px;
+      }
+      max-width: 600px;
+      margin: 0 auto;
+      width: 90%;
+      padding: 50px;
+      height: 500px;
+      border-radius: 70px;
+      border-top: 10px solid $blue;
+      border-left: 3px solid $blue;
+      border-right: 3px solid $blue;
+      background: rgb(52, 74, 186);
+      background: linear-gradient(
+        180deg,
+        rgba(52, 74, 186, 1) 0%,
+        rgba(0, 20, 121, 0.83) 100%
+      );
+      @include responsive(phone) {
+        padding: 50px 30px;
+      }
+      .lose_content {
+        @include cont(flex, space-between, center);
+        flex-direction: column;
+        position: relative;
+        h3 {
+          position: absolute;
+          top: -120px;
+          text-align: center;
+          font-size: 130px;
+          letter-spacing: -1px;
+          background: linear-gradient(
+            180deg,
+            rgba(103, 182, 255, 1) 0%,
+            rgba(255, 255, 255, 1) 99%
+          );
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          color: transparent;
+          -webkit-text-stroke: 5px $stroke;
+          @include responsive(phone) {
+            top: -110px;
+            font-size: 100px;
+            -webkit-text-stroke: 3px $stroke;
+          }
+          @include responsive(m-phone) {
+            top: -100px;
+            font-size: 80px;
+          }
+        }
+        button {
+          font-family: "mouse";
+          font-size: 32px;
+          color: $white;
+          padding: 12px 60px;
+          background-color: transparent;
+          border: none;
+          border-radius: 40px;
+          margin-top: 40px;
+          @include responsive(phone) {
+            font-size: 28px;
+            padding: 12px 50px;
+          }
+        }
+        #restart2 {
+          background-color: $blue;
+          border-radius: 40px;
+          border-top: 5px solid $blue-border;
+          border-left: 4px solid $blue-border;
+          border-right: 4px solid $blue-border;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+        #goCat2 {
+          background-color: $blue;
+          border-radius: 40px;
+          border-top: 5px solid $blue-border;
+          border-left: 4px solid $blue-border;
+          border-right: 4px solid $blue-border;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+        #quit2 {
+          background: rgb(254, 113, 254);
+          background: linear-gradient(
+            180deg,
+            rgba(254, 113, 254, 1) 0%,
+            rgba(199, 129, 254, 1) 39%,
+            rgba(113, 153, 255, 1) 100%
+          );
+          border-radius: 40px;
+          border-top: 5px solid $purple;
+          border-left: 4px solid $purple;
+          border-right: 4px solid $purple;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+    .pause_cont {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      @include responsive(phone) {
+        height: 450px;
+      }
+      max-width: 600px;
+      margin: 0 auto;
+      width: 90%;
+      padding: 50px;
+      height: 500px;
+      border-radius: 70px;
+      border-top: 10px solid $blue;
+      border-left: 3px solid $blue;
+      border-right: 3px solid $blue;
+      background: rgb(52, 74, 186);
+      background: linear-gradient(
+        180deg,
+        rgba(52, 74, 186, 1) 0%,
+        rgba(0, 20, 121, 0.83) 100%
+      );
+      @include responsive(phone) {
+        padding: 50px 30px;
+      }
+      .pause_content {
+        @include cont(flex, space-between, center);
+        flex-direction: column;
+        position: relative;
+        h3 {
+          position: absolute;
+          top: -120px;
+          text-align: center;
+          font-size: 130px;
+          letter-spacing: -1px;
+          background: linear-gradient(
+            180deg,
+            rgba(103, 182, 255, 1) 0%,
+            rgba(255, 255, 255, 1) 99%
+          );
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          color: transparent;
+          -webkit-text-stroke: 5px $stroke;
+          @include responsive(phone) {
+            top: -110px;
+            font-size: 100px;
+            -webkit-text-stroke: 3px $stroke;
+          }
+          @include responsive(m-phone) {
+            top: -100px;
+            font-size: 80px;
+          }
+        }
+        button {
+          font-family: "mouse";
+          font-size: 32px;
+          color: $white;
+          padding: 12px 60px;
+          background-color: transparent;
+          border: none;
+          border-radius: 40px;
+          margin-top: 40px;
+          @include responsive(phone) {
+            font-size: 28px;
+            padding: 12px 50px;
+          }
+        }
+        #continue {
+          background-color: $blue;
+          border-radius: 40px;
+          border-top: 5px solid $blue-border;
+          border-left: 4px solid $blue-border;
+          border-right: 4px solid $blue-border;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+        #goCat3 {
+          background-color: $blue;
+          border-radius: 40px;
+          border-top: 5px solid $blue-border;
+          border-left: 4px solid $blue-border;
+          border-right: 4px solid $blue-border;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+        #quit3 {
+          background: rgb(254, 113, 254);
+          background: linear-gradient(
+            180deg,
+            rgba(254, 113, 254, 1) 0%,
+            rgba(199, 129, 254, 1) 39%,
+            rgba(113, 153, 255, 1) 100%
+          );
+          border-radius: 40px;
+          border-top: 5px solid $purple;
+          border-left: 4px solid $purple;
+          border-right: 4px solid $purple;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+    .overlay {
+      display: none;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: $dark-navy;
+      opacity: 0.7;
+    }
+    .show {
+      display: block;
+    }
+    .hide {
+      display: none;
     }
   }
 }

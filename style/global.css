@@ -146,7 +146,6 @@ body {
   font-family: "mouse";
   height: 100vh;
   display: flex;
-  align-items: flex-start;
   justify-content: center;
 }
 
@@ -239,8 +238,13 @@ body main .menu_content #tutorialBtn:hover {
   opacity: 0.8;
 }
 
-.bodyAlign {
-  align-items: center;
+.menuBody {
+  align-items: center !important;
+}
+
+.menuMain {
+  height: -moz-fit-content !important;
+  height: fit-content !important;
 }
 
 body main {
@@ -507,6 +511,12 @@ body main .categories_container .cat_row .cat {
   text-align: center;
   padding: 30px 0px;
   margin-top: 20px;
+  cursor: pointer;
+  transition: 250ms;
+}
+body main .categories_container .cat_row .cat:hover {
+  background-color: rgb(68, 119, 248);
+  transition: 250ms;
 }
 @media only screen and (max-width: 700px) {
   body main .categories_container .cat_row .cat {
@@ -539,12 +549,14 @@ body main {
   padding: 20px;
   margin: 0 auto;
   width: 100%;
+  height: 100%;
 }
 body main .game_container {
   display: flex;
-  justify-content: auto;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
+  height: 100%;
 }
 body main .game_container .header {
   display: flex;
@@ -692,7 +704,6 @@ body main .game_container .word_container {
   align-items: center;
   width: 100%;
   flex-wrap: wrap;
-  margin-top: 80px;
 }
 body main .game_container .word_container .word {
   display: flex;
@@ -722,13 +733,15 @@ body main .game_container .word_container .word {
 body main .game_container .word_container .guessedWord {
   background-color: #2463ff;
 }
+body main .game_container .word_container .space {
+  opacity: 0;
+}
 body main .game_container .keyboard_container {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   flex-wrap: wrap;
-  margin-top: 80px;
 }
 body main .game_container .keyboard_container .key {
   display: flex;
@@ -750,8 +763,381 @@ body main .game_container .keyboard_container .key:hover {
 body main .game_container .keyboard_container .key:hover span {
   color: #ffffff;
 }
+body main .game_container .keyboard_container .key:disabled {
+  opacity: 0.25;
+}
+body main .game_container .keyboard_container .key:disabled:hover {
+  background-color: #ffffff;
+}
+body main .game_container .keyboard_container .key:disabled:hover span {
+  color: #261676;
+}
+@media only screen and (max-width: 950px) {
+  body main .game_container .keyboard_container .key {
+    height: 50px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  body main .game_container .keyboard_container .key {
+    margin: 5px;
+    height: 40px;
+  }
+}
 body main .game_container .keyboard_container .key span {
   color: #261676;
   font-size: 45px;
   font-family: "mouse";
+}
+@media only screen and (max-width: 950px) {
+  body main .game_container .keyboard_container .key span {
+    font-size: 35px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  body main .game_container .keyboard_container .key span {
+    font-size: 30px;
+  }
+}
+body main .win_cont {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 90%;
+  padding: 50px;
+  height: 500px;
+  border-radius: 70px;
+  border-top: 10px solid #2463ff;
+  border-left: 3px solid #2463ff;
+  border-right: 3px solid #2463ff;
+  background: rgb(52, 74, 186);
+  background: linear-gradient(180deg, rgb(52, 74, 186) 0%, rgba(0, 20, 121, 0.83) 100%);
+}
+@media only screen and (max-width: 500px) {
+  body main .win_cont {
+    height: 450px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  body main .win_cont {
+    padding: 50px 30px;
+  }
+}
+body main .win_cont .win_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+body main .win_cont .win_content h3 {
+  position: absolute;
+  top: -120px;
+  text-align: center;
+  font-size: 130px;
+  letter-spacing: -1px;
+  background: linear-gradient(180deg, rgb(103, 182, 255) 0%, rgb(255, 255, 255) 99%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 5px #243041;
+}
+@media only screen and (max-width: 500px) {
+  body main .win_cont .win_content h3 {
+    top: -110px;
+    font-size: 100px;
+    -webkit-text-stroke: 3px #243041;
+  }
+}
+@media only screen and (max-width: 400px) {
+  body main .win_cont .win_content h3 {
+    top: -100px;
+    font-size: 80px;
+  }
+}
+body main .win_cont .win_content button {
+  font-family: "mouse";
+  font-size: 32px;
+  color: #ffffff;
+  padding: 12px 60px;
+  background-color: transparent;
+  border: none;
+  border-radius: 40px;
+  margin-top: 40px;
+}
+@media only screen and (max-width: 500px) {
+  body main .win_cont .win_content button {
+    font-size: 28px;
+    padding: 12px 50px;
+  }
+}
+body main .win_cont .win_content #restart {
+  background-color: #2463ff;
+  border-radius: 40px;
+  border-top: 5px solid rgb(68, 119, 248);
+  border-left: 4px solid rgb(68, 119, 248);
+  border-right: 4px solid rgb(68, 119, 248);
+}
+body main .win_cont .win_content #restart:hover {
+  opacity: 0.8;
+}
+body main .win_cont .win_content #goCat {
+  background-color: #2463ff;
+  border-radius: 40px;
+  border-top: 5px solid rgb(68, 119, 248);
+  border-left: 4px solid rgb(68, 119, 248);
+  border-right: 4px solid rgb(68, 119, 248);
+}
+body main .win_cont .win_content #goCat:hover {
+  opacity: 0.8;
+}
+body main .win_cont .win_content #quit {
+  background: rgb(254, 113, 254);
+  background: linear-gradient(180deg, rgb(254, 113, 254) 0%, rgb(199, 129, 254) 39%, rgb(113, 153, 255) 100%);
+  border-radius: 40px;
+  border-top: 5px solid #887dc0;
+  border-left: 4px solid #887dc0;
+  border-right: 4px solid #887dc0;
+}
+body main .win_cont .win_content #quit:hover {
+  opacity: 0.8;
+}
+body main .lose_cont {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 90%;
+  padding: 50px;
+  height: 500px;
+  border-radius: 70px;
+  border-top: 10px solid #2463ff;
+  border-left: 3px solid #2463ff;
+  border-right: 3px solid #2463ff;
+  background: rgb(52, 74, 186);
+  background: linear-gradient(180deg, rgb(52, 74, 186) 0%, rgba(0, 20, 121, 0.83) 100%);
+}
+@media only screen and (max-width: 500px) {
+  body main .lose_cont {
+    height: 450px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  body main .lose_cont {
+    padding: 50px 30px;
+  }
+}
+body main .lose_cont .lose_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+body main .lose_cont .lose_content h3 {
+  position: absolute;
+  top: -120px;
+  text-align: center;
+  font-size: 130px;
+  letter-spacing: -1px;
+  background: linear-gradient(180deg, rgb(103, 182, 255) 0%, rgb(255, 255, 255) 99%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 5px #243041;
+}
+@media only screen and (max-width: 500px) {
+  body main .lose_cont .lose_content h3 {
+    top: -110px;
+    font-size: 100px;
+    -webkit-text-stroke: 3px #243041;
+  }
+}
+@media only screen and (max-width: 400px) {
+  body main .lose_cont .lose_content h3 {
+    top: -100px;
+    font-size: 80px;
+  }
+}
+body main .lose_cont .lose_content button {
+  font-family: "mouse";
+  font-size: 32px;
+  color: #ffffff;
+  padding: 12px 60px;
+  background-color: transparent;
+  border: none;
+  border-radius: 40px;
+  margin-top: 40px;
+}
+@media only screen and (max-width: 500px) {
+  body main .lose_cont .lose_content button {
+    font-size: 28px;
+    padding: 12px 50px;
+  }
+}
+body main .lose_cont .lose_content #restart2 {
+  background-color: #2463ff;
+  border-radius: 40px;
+  border-top: 5px solid rgb(68, 119, 248);
+  border-left: 4px solid rgb(68, 119, 248);
+  border-right: 4px solid rgb(68, 119, 248);
+}
+body main .lose_cont .lose_content #restart2:hover {
+  opacity: 0.8;
+}
+body main .lose_cont .lose_content #goCat2 {
+  background-color: #2463ff;
+  border-radius: 40px;
+  border-top: 5px solid rgb(68, 119, 248);
+  border-left: 4px solid rgb(68, 119, 248);
+  border-right: 4px solid rgb(68, 119, 248);
+}
+body main .lose_cont .lose_content #goCat2:hover {
+  opacity: 0.8;
+}
+body main .lose_cont .lose_content #quit2 {
+  background: rgb(254, 113, 254);
+  background: linear-gradient(180deg, rgb(254, 113, 254) 0%, rgb(199, 129, 254) 39%, rgb(113, 153, 255) 100%);
+  border-radius: 40px;
+  border-top: 5px solid #887dc0;
+  border-left: 4px solid #887dc0;
+  border-right: 4px solid #887dc0;
+}
+body main .lose_cont .lose_content #quit2:hover {
+  opacity: 0.8;
+}
+body main .pause_cont {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 90%;
+  padding: 50px;
+  height: 500px;
+  border-radius: 70px;
+  border-top: 10px solid #2463ff;
+  border-left: 3px solid #2463ff;
+  border-right: 3px solid #2463ff;
+  background: rgb(52, 74, 186);
+  background: linear-gradient(180deg, rgb(52, 74, 186) 0%, rgba(0, 20, 121, 0.83) 100%);
+}
+@media only screen and (max-width: 500px) {
+  body main .pause_cont {
+    height: 450px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  body main .pause_cont {
+    padding: 50px 30px;
+  }
+}
+body main .pause_cont .pause_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+body main .pause_cont .pause_content h3 {
+  position: absolute;
+  top: -120px;
+  text-align: center;
+  font-size: 130px;
+  letter-spacing: -1px;
+  background: linear-gradient(180deg, rgb(103, 182, 255) 0%, rgb(255, 255, 255) 99%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 5px #243041;
+}
+@media only screen and (max-width: 500px) {
+  body main .pause_cont .pause_content h3 {
+    top: -110px;
+    font-size: 100px;
+    -webkit-text-stroke: 3px #243041;
+  }
+}
+@media only screen and (max-width: 400px) {
+  body main .pause_cont .pause_content h3 {
+    top: -100px;
+    font-size: 80px;
+  }
+}
+body main .pause_cont .pause_content button {
+  font-family: "mouse";
+  font-size: 32px;
+  color: #ffffff;
+  padding: 12px 60px;
+  background-color: transparent;
+  border: none;
+  border-radius: 40px;
+  margin-top: 40px;
+}
+@media only screen and (max-width: 500px) {
+  body main .pause_cont .pause_content button {
+    font-size: 28px;
+    padding: 12px 50px;
+  }
+}
+body main .pause_cont .pause_content #continue {
+  background-color: #2463ff;
+  border-radius: 40px;
+  border-top: 5px solid rgb(68, 119, 248);
+  border-left: 4px solid rgb(68, 119, 248);
+  border-right: 4px solid rgb(68, 119, 248);
+}
+body main .pause_cont .pause_content #continue:hover {
+  opacity: 0.8;
+}
+body main .pause_cont .pause_content #goCat3 {
+  background-color: #2463ff;
+  border-radius: 40px;
+  border-top: 5px solid rgb(68, 119, 248);
+  border-left: 4px solid rgb(68, 119, 248);
+  border-right: 4px solid rgb(68, 119, 248);
+}
+body main .pause_cont .pause_content #goCat3:hover {
+  opacity: 0.8;
+}
+body main .pause_cont .pause_content #quit3 {
+  background: rgb(254, 113, 254);
+  background: linear-gradient(180deg, rgb(254, 113, 254) 0%, rgb(199, 129, 254) 39%, rgb(113, 153, 255) 100%);
+  border-radius: 40px;
+  border-top: 5px solid #887dc0;
+  border-left: 4px solid #887dc0;
+  border-right: 4px solid #887dc0;
+}
+body main .pause_cont .pause_content #quit3:hover {
+  opacity: 0.8;
+}
+body main .overlay {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #261676;
+  opacity: 0.7;
+}
+body main .show {
+  display: block;
+}
+body main .hide {
+  display: none;
 }/*# sourceMappingURL=global.css.map */
