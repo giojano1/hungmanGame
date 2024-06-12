@@ -34,7 +34,7 @@ function startGame() {
       let wordCount = chosenWord.name.length;
       genWordBox(chosenWord.name);
       gamePlay(chosenWord);
-      return chosenWord;
+      console.log(chosenWord);
     });
 }
 // generate empty boxes
@@ -51,9 +51,10 @@ function genWordBox(word) {
 //game
 function gamePlay(chosenWord) {
   let word = chosenWord.name.toUpperCase();
+  const box = document.querySelectorAll(".word");
+  const wordBox = document.querySelectorAll(".word:not(.space)");
   keys.forEach((key) => {
     key.value = key.textContent.toUpperCase();
-    const box = document.querySelectorAll(".word");
     let counter = 0;
     key.addEventListener("click", () => {
       key.disabled = true;
@@ -71,8 +72,9 @@ function gamePlay(chosenWord) {
       } else {
         gameLife();
       }
-      if (Array.from(box).every((element) => element.textContent !== "")) {
-        setTimeout(win, 300);
+      console.log(wordBox);
+      if (Array.from(wordBox).every((element) => element.textContent !== "")) {
+        win();
       }
     });
   });
